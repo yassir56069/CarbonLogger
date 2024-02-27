@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:carbon_logger/pages/splash.dart';
+import 'package:carbon_logger/pages/login.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: 'Poppins'),
-      home: Scaffold(),
+      home: const Login(),
     );
   }
 }
