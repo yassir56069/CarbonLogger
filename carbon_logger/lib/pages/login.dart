@@ -3,7 +3,8 @@
 import 'package:flutter/foundation.dart'; 
 import 'package:flutter/material.dart'; 
 import 'package:form_field_validator/form_field_validator.dart'; 
-  
+import 'package:flutter_svg/flutter_svg.dart';
+
 class Login extends StatefulWidget { 
   const Login({super.key}); 
   
@@ -45,7 +46,13 @@ class _LoginState extends State<Login> {
                 decoration: BoxDecoration( 
                     borderRadius: BorderRadius.circular(40), 
                     border: Border.all(color: Colors.blueGrey)), 
-                child: Image.asset('assets/logo.png'), 
+                    child: SvgPicture.asset(
+                      'assets/icons/carbon2.svg',
+                      // colorFilter: const ColorFilter.mode(
+                      //     Color(0xffD3C8D6), BlendMode.srcIn),
+                      height: 35,
+                      width: 35,
+                    ),
               ), 
             ), 
           ), 
@@ -175,10 +182,13 @@ class _LoginState extends State<Login> {
                                   SizedBox( 
                                     height: 70, 
                                     width: 70, 
-                                    child: Image.asset( 
-                                      'assets/carbon_logo.png', 
-                                      fit: BoxFit.cover, 
-                                    ), 
+                                    child: SvgPicture.asset(
+                                    'assets/icons/carbon2.svg',
+                                    // colorFilter: const ColorFilter.mode(
+                                    //     Color(0xffD3C8D6), BlendMode.srcIn),
+                                    height: 35,
+                                    width: 35,
+                                  ),
                                   ), 
                                   SizedBox( 
                                     height: 40, 
