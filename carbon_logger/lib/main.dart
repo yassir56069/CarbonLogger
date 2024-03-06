@@ -1,31 +1,35 @@
+import 'package:admin/constants.dart';
+import 'package:admin/controllers/MenuAppController.dart';
+import 'package:admin/screens/main/main_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:carbon_logger/pages/login.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-          hintColor: Colors.greenAccent,
-          hoverColor: Colors.greenAccent,
-          primaryColor: Colors.black,
-          scaffoldBackgroundColor: Colors.black54,
-          focusColor: Colors.greenAccent,
-          inputDecorationTheme: const InputDecorationTheme(
-              hoverColor: Colors.greenAccent,
-              border: OutlineInputBorder(),
-              labelStyle: TextStyle(
-                color: Colors.greenAccent,
-              ))),
-      home: const Login(),
+      title: 'Carbon FootPrint',
+      theme: ThemeData.dark().copyWith(
+        scaffoldBackgroundColor: bgColor,
+        textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme)
+            .apply(bodyColor: Colors.white),
+        canvasColor: secondaryColor,
+      ),
+      home: MultiProvider(
+        providers: [
+          ChangeNotifierProvider(
+            create: (context) => MenuAppController(),
+          ),
+        ],
+        child: MainScreen(),
+      ),
     );
   }
 }
